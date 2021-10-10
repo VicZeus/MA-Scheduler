@@ -1,0 +1,75 @@
+/*import {Button, View, Text, TextInput} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { Component } from 'react';
+
+export default class AddNewItem extends Component {
+    state = {
+        username: '',
+        token: '',
+        array: [
+            {
+                key: '1',
+                firstName: 'Victor',
+                lastName: 'Frederix'
+            }
+        ]
+    }
+    constructor(props) {
+        super(props)
+        this.getData()
+    }
+    onSubmit = async () => {
+        try {
+            this.setState({token: this.state.username})
+            await AsyncStorage.setItem('token', this.state.username)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    getData = async () => {
+        try {
+          const value = await AsyncStorage.getItem('token')
+          if(value !== null) {
+              this.setState({ token: value })
+            // value previously stored
+          }
+        } catch(e) {
+          // error reading value
+        }
+    }
+
+    list = () => {
+        return this.state.array.map((element) => {
+            return(
+                <View key={element.key}>
+                    <Text>{element.firstName}</Text>
+                    <TextInput 
+                        onChangeText={val =>this.setState({array: []})} //Whenever you add a new event or edit an existing event you create an etire new array which is empty in the beginning (array: []), then when you enter the data it will put in an entirely new index in array.
+                        value={element.lastName} 
+                        placeholder="Last Name"/>
+                </View>
+            )
+        })
+    }
+    
+    render() {
+        const {navigation} = this.props
+        //Damit navigation.goBack() in der class component funktioniert
+
+        return(
+            <View style={{ flex: 1, position: 'absolute', top: 0, left: '30%', width: '40%'}}>
+                <Text style={{textAlign: 'center'}}>AddNewItem</Text>
+                <TextInput
+                    onChangeText={val => this.setState({ username: val })}
+                    value={this.state.username}
+                    placeholder="Placerholder"
+                />
+                <Button title="Go Back" onPress={() => navigation.goBack()} />
+                <Button title='AsyncstorageTest' onPress={this.onSubmit} />
+                <Text>{this.state.token}</Text>
+                <Text>{this.state.username}</Text>
+                {this.list()}
+            </View>
+        )
+    }
+}*/
